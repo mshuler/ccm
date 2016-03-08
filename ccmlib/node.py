@@ -985,7 +985,7 @@ class Node(object):
         cdir = self.get_install_dir()
         sstableupgrade = self.get_tool('sstableupgrade')
         env = self.get_env()
-        cmd = [sstableupgrade, keyspace, column_family]
+        cmd = [sstableupgrade, '--debug', keyspace, column_family]
         results = []
         if output_file is None:
             p = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE, env=env)
