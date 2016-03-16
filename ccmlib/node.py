@@ -1499,7 +1499,7 @@ class Node(object):
             common.replace_in_file(conf_file, gc_log_pattern, gc_log_setting)
 
         for itf in list(self.network_interfaces.values()):
-            if itf is not None and common.interface_is_ipv6(itf):
+            if itf not in [None, 'localhost'] and common.interface_is_ipv6(itf):
                 if common.is_win():
                     common.replace_in_file(conf_file,
                                            '-Djava.net.preferIPv4Stack=true',
