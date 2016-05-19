@@ -204,7 +204,7 @@ def make_cassandra_env(install_dir, node_path, update_conf=True):
             f.write(append)
             f.write('\n### End Cluster wide config ###\n\n')
 
-    env = os.environ.copy()
+    env = copy.deepcopy(os.environ)
     env['CASSANDRA_INCLUDE'] = os.path.join(dst)
     env['MAX_HEAP_SIZE'] = os.environ.get('CCM_MAX_HEAP_SIZE', '500M')
     env['HEAP_NEWSIZE'] = os.environ.get('CCM_HEAP_NEWSIZE', '50M')
