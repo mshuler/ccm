@@ -774,7 +774,7 @@ class Node(object):
             p.stdin.write("quit;\n")
             p.wait()
             for err in p.stderr:
-                print_("(EE) ", err, end='')
+                print_("(EE) {}".format(err).decode('utf-8'), end='')
             if show_output:
                 i = 0
                 for log in p.stdout:
